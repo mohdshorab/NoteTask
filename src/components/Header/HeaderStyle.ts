@@ -1,27 +1,36 @@
 import { StyleSheet } from 'react-native';
+import typography from '../../theme/typography';
+import colors from '../../theme/colors';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15, 
-    alignItems: 'center',
-    justifyContent: 'center', 
-    borderBottomWidth: 1,
-    borderBottomColor: 'grey', 
-    marginBottom: 10,
+    height: 56,
     flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.grayBorder,
+    paddingHorizontal: 16,
+  },
+  leftContainer: {
+    width: 40,
+    justifyContent: 'center',
+  },
+  backButton: {
+    padding: 8,
+  },
+  titleContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
   titleText: {
-    fontSize: 18,
+    fontSize: typography.fontSizeLarge,
     fontWeight: 'bold',
-    color: 'gray',
+    color: colors.textPrimary,
   },
-  btnContainer:{
-    justifyContent: 'flex-start',
+  rightContainer: {
+    width: 40,
   },
-  backContainer:{
-    position: 'absolute',
-    left: 0,
-  }
 });
 
 export default styles;

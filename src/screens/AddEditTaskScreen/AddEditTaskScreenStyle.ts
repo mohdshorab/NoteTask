@@ -1,27 +1,36 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
+import typography from '../../theme/typography';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 10,
+    backgroundColor: colors.background,
   },
   inputBoxTitle: {
     fontSize: 28,
     borderWidth: 1,
+    borderColor: colors.grayBorder,
     borderRadius: 10,
     padding: 5,
     marginVertical: 10,
     textAlignVertical: 'top',
+    fontFamily: typography.fontFamilyRegular,
+    color: colors.textPrimary,
   },
   inputBoxDesc: {
     fontSize: 18,
     borderWidth: 1,
+    borderColor: colors.grayBorder,
     borderRadius: 10,
     padding: 5,
     fontWeight: '300',
     marginVertical: 10,
     textAlignVertical: 'top',
-    height: 450,
+    height: 150,
+    fontFamily: typography.fontFamilyRegular,
+    color: colors.textPrimary,
   },
   buttonRow: {
     flexDirection: 'row',
@@ -37,28 +46,29 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   discardButton: {
-    backgroundColor: 'red',
+    backgroundColor: colors.error,
   },
   saveButton: {
-    backgroundColor: 'green',
+    backgroundColor: colors.success,
+  },
+  deleteButton: {
+    backgroundColor: colors.error,
   },
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: typography.fontSizeMedium,
   },
   inputError: {
-    borderColor: 'red',
+    borderColor: colors.error,
     borderWidth: 1,
   },
   errorText: {
-    color: 'red',
-    fontSize: 12,
+    color: colors.error,
+    fontSize: typography.fontSizeSmall,
     marginTop: 4,
     marginBottom: 8,
   },
-  deleteButton: {
-    backgroundColor: 'red',
-  },
 });
+
 export default styles;
