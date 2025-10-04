@@ -6,4 +6,9 @@ export default {
   error: '#D0021B',
   success: '#7ED321',
   grayBorder: '#D3D3D3',
+  priorityHigh: '#E74C3C',
+  priorityMedium: '#F39C12',
+  priorityLow: '#27AE60',
+  skeletonBase: '#E0E0E0',
+  skeletonHighlight: '#F5F5F5',
 };

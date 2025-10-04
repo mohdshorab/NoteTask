@@ -1,17 +1,18 @@
-import { Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Task } from '../../types/taskTypes';
+import colors from '../../theme/colors';
 import styles from './TaskCardStyles';
 
-type Item = {
-  id: number;
-  title: string;
-  description: string;
-  completed: 0 | 1;
-  updated_at: string;
+type TaskCardProps = {
+  item: Task;
+  onPress?: () => void;
 };
 
-type TaskCardProps = {
-  item: Item;
-  onPress?: () => void;
+const priorityColors = {
+  High: colors.priorityHigh,
+  Medium: colors.priorityMedium,
+  Low: colors.priorityLow,
 };
 
 const formatDate = (dateString: string) => {
@@ -24,15 +25,49 @@ const formatDate = (dateString: string) => {
 };
 
 const TaskCard: React.FC<TaskCardProps> = ({ item, onPress }) => {
+  const now = new Date();
+  const dueDate: Date | null = item.due_date ? new Date(item.due_date) : null;
+  const isOverdue = dueDate !== null ? dueDate < now && !item.completed : false;
+
   return (
     <TouchableOpacity
-      style={[styles.card, item.completed === 1 && styles.completedCard]}
+      style={[styles.card, item.completed && styles.completedCard]}
       onPress={onPress}
+      activeOpacity={0.7}
     >
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.updatedAt}>
-        Updated: {formatDate(item.updated_at)}
-      </Text>
+      <View style={styles.content}>
+        <Text style={[styles.title, item.completed && styles.completedTitle]}>
+          {item.title}
+        </Text>
+
+        {item.description ? (
+          <Text style={[styles.description, item.completed && styles.completedText]} numberOfLines={2}>
+            {item.description}
+          </Text>
+        ) : null}
+
+        {dueDate !== null && (
+          <Text style={[styles.dueDate, isOverdue && styles.overdueDate, item.completed && styles.completedText]}>
+            Due: {dueDate.toDateString()}
+          </Text>
+        )}
+
+        <Text style={[styles.updatedAt, item.completed && styles.completedText]}>
+          Updated: {formatDate(item.updated_at)}
+        </Text>
+      </View>
+
+      {item.priority && (
+        <View
+          style={[
+            styles.priorityBadge,
+            { backgroundColor: priorityColors[item.priority] || colors.priorityMedium },
+            item.completed && styles.completedBadge,
+          ]}
+        >
+          <Text style={styles.priorityText}>{item.priority}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
