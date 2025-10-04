@@ -21,17 +21,19 @@ export const initDB = async (): Promise<SQLite.SQLiteDatabase> => {
 
     await db.executeSql(
       `CREATE TABLE IF NOT EXISTS tasks (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT NOT NULL,
-        description TEXT,
-        completed INTEGER DEFAULT 0,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-      );`,
-      [],
-      () => console.log('Table created or already exists'),
-      error => console.log('Table creation error:', error),
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      description TEXT,
+      completed INTEGER DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      priority TEXT DEFAULT 'Medium',
+      due_date DATETIME,
+      category TEXT
+      );`, [], () => console.log('Table created or already exists'),
+      (error: Error) => console.log('Table creation error:', error),
     );
+
 
     return db;
   } catch (error) {
