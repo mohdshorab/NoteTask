@@ -51,6 +51,9 @@ A simple and intuitive task management application built with React Native. Keep
 - **Search Section**  
   ![Search Bar](./src/screenshots/Search_TaskList_Screen.png)
 
+- **Search Section**  
+  ![Recently Completed](./src/screenshots/Recently_Completed.png)
+
 ---
 
 ## 🚀 Getting Started

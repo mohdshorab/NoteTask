@@ -11,9 +11,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: colors.grayBorder,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -24,9 +21,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     opacity: 0.7,
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center', 
+  },
+  tickContainer: {
+    marginRight: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   content: {
     flex: 1,
-    paddingRight: 12,
   },
   title: {
     fontSize: typography.fontSizeMedium,
@@ -67,7 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     minWidth: 60,
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-end',
+    marginTop: 6,
   },
   completedBadge: {
     opacity: 0.6,
@@ -78,6 +84,5 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSizeSmall,
   },
 });
-
 
 export default styles;
