@@ -96,14 +96,13 @@ export const selectFilteredSortedTasks = createSelector(
   }
 );
 
-// Selector for recently completed tasks
 export const selectRecentlyCompleted = createSelector(
   [(state: RootState) => state.tasks.tasks],
   (tasks) => {
     const completedTasks = tasks
       .filter(task => task.completed)
       .sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
-      .slice(0, 3); // Show only last 3 completed tasks
+      .slice(0, 3);
     
     return completedTasks;
   }

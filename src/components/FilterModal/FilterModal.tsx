@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  StyleSheet,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {
