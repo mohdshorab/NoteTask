@@ -7,19 +7,39 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  searchBarContainer: {
+  topBar: {
+    flexDirection: 'row',
     paddingHorizontal: 16,
     paddingVertical: 12,
+    alignItems: 'center',
   },
   searchInput: {
+    flex: 1,
     height: 44,
     borderWidth: 1,
     borderColor: colors.grayBorder,
     borderRadius: 8,
     paddingHorizontal: 12,
     backgroundColor: colors.background,
-    fontFamily: typography.fontFamilyRegular,
     fontSize: typography.fontSizeMedium,
+    color: colors.textPrimary,
+  },
+  filterButton: {
+    marginLeft: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    backgroundColor: colors.primary,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sectionHeader: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  sectionTitle: {
+    fontSize: typography.fontSizeLarge,
+    fontWeight: 'bold',
     color: colors.textPrimary,
   },
   floatingButton: {
