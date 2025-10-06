@@ -1,0 +1,41 @@
+# ----------------------------------------------------------------------
+# Core Git Behavior (Recommended for Cross-Platform Teams)
+# ----------------------------------------------------------------------
+# Automatically detect text/binary and ensure consistent LF line endings 
+# in the repository (and OS-native on checkout).
+* text=auto
+
+# ----------------------------------------------------------------------
+# GitHub Linguist Overrides (For Accurate Language Stats)
+# ----------------------------------------------------------------------
+
+# CORRECTED PATHS: use 'directory/**' or 'directory/' to match subdirectories
+android/** linguist-vendored
+ios/** linguist-vendored
+# Note: You only need to exclude the root 'android' and 'ios' folders, 
+# as this covers all subdirectories and build folders inside them.
+
+# Exclude Node modules (large dependency files)
+node_modules/ linguist-vendored
+
+# Exclude specific file types that are "vendor" code in a RN project
+*.bundle linguist-vendored
+*.lock linguist-vendored
+*.xcassets linguist-vendored
+
+# Exclude common Ruby files for CocoaPods/Fastlane
+Gemfile linguist-vendored
+Gemfile.lock linguist-vendored
+fastlane/ linguist-vendored
+
+# Exclude C/C++/CMake files that inflate the stats
+**/*.c linguist-vendored
+**/*.cpp linguist-vendored
+**/*.h linguist-vendored
+**/*.hpp linguist-vendored
+**/CMakeLists.txt linguist-vendored
+
+# Exclude generated files (suppresses them in diffs on GitHub)
+**/*.js.map linguist-generated=true
+
+what this wil do in adding .gitattribute file in root folder of my rn project
